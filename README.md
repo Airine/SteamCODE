@@ -1,4 +1,5 @@
 
+![](Cover.jpg)
 
 # STEAMCODE - Community Detection on Steam Games
 
@@ -14,9 +15,7 @@
 
 **Team Leader: Tian Runxin**
 
-![](Cover.jpg)
-
-Fast go trough the [project](#Reference)
+Fast go trough the [project](#poster)
 
 ## Decription
 

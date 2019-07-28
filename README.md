@@ -15,7 +15,12 @@
 
 **Team Leader: Tian Runxin**
 
-Fast go trough the [project](#poster)
+---
+
+1. Fast go trough the [project](#poster)
+
+2. How to [Run](#Deploy)
+3. Result [Visualization](https://blog.aaron-xin.tech/SteamCODE/) (using d3-3d framework[[3]](#Reference))
 
 ## Decription
 
@@ -59,6 +64,16 @@ Our project aims to investigate the similarity between **header pictures** (tiny
 
 [[2]](steamdb.info) Steamdb is a [third-party](https://steamdb.info/faq/#who-is-behind-this-website) tool, which was made to give better insight into the applications and packages that [Steam](https://store.steampowered.com/) has in its database.
 
+[3] https://github.com/Niekes/d3-3d
+
 # Poster
 
 ![Poster](Poster.png)
+
+
+
+# Deploy
+
+To be continue...
+
+If you really want to know the deployment method, please contact [me](airine@gmail.com).

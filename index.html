@@ -1,0 +1,154 @@
+<head>
+  <link rel="stylesheet" href="custom.css">
+  <script src="//unpkg.com/three"></script>
+
+  <script src="//unpkg.com/3d-force-graph"></script>
+
+  <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+
+  <!--<script src="dist/3d-force-graph.js"></script>-->
+
+  <script src="//d3js.org/d3-dsv.v1.min.js"></script>
+
+  <script src="//d3js.org/d3-fetch.v1.min.js"></script>
+
+  	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  	<!-- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/> -->
+  <!--===============================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <!--===============================================================================================-->
+  	<link rel="stylesheet" type="text/css" href="css/util.css">
+  	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet" />
+    <!-- <link href="css/main.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="top text">
+      <h1 id="gtype" class="topChild info"> 3D Image </h1>
+      <select id="gselect" class="topChild">
+			<option value="None">-- Select --</option>
+			<option value="1" selected>3D Image</option>
+			<option value="2">3D Group</option>
+			<option value="3">Price</option>
+            <option value="4">Year</option>
+            <option value="5">Game Series</option>
+            <option value="6">Price & Series</option>
+            <option value="7">Year & Series</option>
+            <option value="8">Rating</option>
+            <option value="9">Tag</option>
+            <option value="10">On Sale</option>
+	  </select>
+  </div>
+
+  <div id="left-float">
+    <h2 class="text info">SteamArt</h2>
+    <h3 id="name" class="text info">Portal 2 (id:620)</h3>
+    <h4 class="text info">Please try right click the nodes.</h4>
+    <a id="link" href="https://steamdb.info/app/620/info/" target="_blank"><img id="poster" class="info" src="img/620.jpg" style="width:100%; "></a>
+
+    <div class="table100 ver3 info" style="width:100%; ">
+    	<div class="table100-head">
+    		<table>
+    			<thead>
+    				<tr class="row100 head">
+       					<th class="cell100 column1">Price (USD)</th>
+       					<th class="cell100 column2">Company</th>
+                        <th class="cell100 column3">Release Year</th>
+                        <th class="cell100 column4">Rating</th>    				</tr>
+    			</thead>
+    		</table>
+    	</div>
+
+    	<div class="table100-body js-pscroll">
+    		<table>
+    			<tbody>
+    				<tr class="row100 body">
+                        <td id="tprice" class="cell100 column1">5</td>
+                        <td id="tcompany" class="cell100 column2">None</td>
+                        <td id="tyear" class="cell100 column3">2xxx</td>
+                        <td id="trating" class="cell100 column4">96.57%</td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+    </div>
+
+    <h2 class="text info">Similar Neighbors:</h2>
+
+    <div id="neighbors">
+
+    </div>
+
+  </div>
+
+  <button class="leftbtn" onclick="openNavLeft()">☰ Detail Info</button>
+  <button class="rightbtn" onclick="openNavRight()">☰ Cluster Info</button>
+
+   <div id="right-float">
+      <!-- <a href="javascript:void(0)" class="closebtn text" onclick="closeNav()">×</a> -->
+      <h2 class="text info" id="cluster">Cluster: 1</h2>
+      <h2 class="text info" id="member" >All members:</h2>
+      <div id="members"> </div>
+   </div>
+
+   <div id="bottom-float">
+       <div class="table100 ver3 info">
+       	<div class="table100-head">
+       		<table>
+       			<thead>
+       				<tr class="row100 head">
+                        <th class="cell100 column1">ID</th>
+    					<th class="cell100 column2">Name</th>
+       					<th class="cell100 column3">Price (USD)</th>
+       					<th class="cell100 column4">Company</th>
+                        <th class="cell100 column5">Release Year</th>
+                        <th class="cell100 column6">Rating</th>
+       				</tr>
+       			</thead>
+       		</table>
+       	</div>
+
+       	<div class="table100-body js-pscroll" style="height:85%;">
+       		<table>
+       			<tbody id="mrows">
+       				<tr class="row100 body">
+                        <td class="cell100 column1">620</td>
+                        <td class="cell100 column2">Portal 2</td>
+                        <td class="cell100 column3">5</td>
+                        <td class="cell100 column4">None</td>
+                        <td class="cell100 column5">2xxx</td>
+                        <td class="cell100 column6">96.57%</td>
+       				</tr>
+       			</tbody>
+       		</table>
+       	</div>
+       </div>
+   </div>
+   <div id="top-search-bar">
+    <form class="example" style="margin:auto;max-width:300px" onsubmit="false">
+      <input type="text" placeholder="Search by AppID..." id="searchbar">
+      <input id="hiddenText" type="text" style="display:none" />
+      <button type="button" onclick="searchGame()"><i class="fa fa-search"></i></button>
+    </form>
+   </div>
+
+  <div id="3d-graph" class="right-half">
+
+  </div>
+
+    <script type="text/javascript" src="page.js"></script>
+</body>
